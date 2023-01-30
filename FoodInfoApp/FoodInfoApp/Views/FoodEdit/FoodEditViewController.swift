@@ -7,7 +7,10 @@
 
 import UIKit
 
-class FoodEditViewController: UIViewController {
+class FoodEditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    @IBOutlet weak var imageFood: UIImageView!
     
     weak var presenter: FoodEditPresenter?
     
@@ -45,7 +48,49 @@ class FoodEditViewController: UIViewController {
         self.presenter?.requestFoodSelected()
     }
     
-    @IBAction func changeButton(_ sender: Any) {
+    
+    @IBAction func selectImageFood(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Selecciona una imagen", message: "Desde donde", preferredStyle: .alert)
+        
+        let galeria = UIAlertAction(title: "Galeria", style: .default) { _ in self.mostrarImagenSeleccionada(imagenseleccionada: .photoLibrary)
+            
+        }
+        
+        alert.addAction(galeria)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func mostrarImagenSeleccionada(imagenseleccionada: UIImagePickerController.SourceType) {
+        
+        guard UIImagePickerController.isSourceTypeAvailable(imagenseleccionada) else {
+            
+            print("Error, imagen no valida")
+            return
+        }
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = imagenseleccionada
+        imagePickerController.allowsEditing = false
+        self.present(imagePickerController, animated: true, completion: nil)
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let imagenSeleccionada = info[.originalImage] as? UIImage {
+            
+            self.imageFood.image = imagenSeleccionada
+            
+        } else {
+            
+            print("Imagen no encontrada")
+        }
+        picker.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func saveButton(_ sender: Any) {
@@ -59,19 +104,19 @@ class FoodEditViewController: UIViewController {
         guard fatTextField.text != nil else {
             return
         }
-        guard let sugar = sugarTextField.text else {
+        guard sugarTextField.text != nil else {
             return
         }
-        guard let fiber = fiberTextField.text else {
+        guard fiberTextField.text != nil else {
             return
         }
-        guard let carbs = carbsTextField.text else {
+        guard carbsTextField.text != nil else {
             return
         }
-        guard let protein = proteinTextField.text else {
+        guard proteinTextField.text != nil else {
             return
         }
-        guard let units = unitTextField.text else {
+        guard unitTextField.text != nil else {
             return
         }
         
@@ -115,6 +160,12 @@ extension FoodEditViewController: FoodEditDelegate {
         
         self.nameTextField.text = food.name
         self.calTextField.text = food.calorias.description
+        fatTextField.text = food.fat.description
+        sugarTextField.text = food.suggar.description
+        fiberTextField.text = food.fiber.description
+        carbsTextField.text = food.carbs.description
+        proteinTextField.text = food.protein.description
+        unitTextField.text = food.units.description
     }
     
 }

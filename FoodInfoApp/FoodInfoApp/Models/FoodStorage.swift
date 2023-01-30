@@ -10,7 +10,7 @@ import CoreData
 
 class FoodStorage {
     
-    // Generando un ocntenedor persistente
+    // Generando un contenedor persistente
     private lazy var container: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "FoodModel")
@@ -82,6 +82,7 @@ class FoodStorage {
         
     }
     
+    //Crea un alimento
     func createFood(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) -> FoodEntity? {
         
         let food = FoodEntity(context: self.context)

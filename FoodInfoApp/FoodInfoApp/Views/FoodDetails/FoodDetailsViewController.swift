@@ -15,10 +15,8 @@ class FoodDetailsViewController: UIViewController {
     var foodUpdated: FoodEntity?
     
     @IBOutlet weak var foodImage: UIImageView!
-    
     @IBOutlet weak var nameFoodLabel: UILabel!
     @IBOutlet weak var nutrientsLabel: UILabel!
-    
     @IBOutlet weak var caloriesCountLabel: UILabel!
     @IBOutlet weak var fatCountLabel: UILabel!
     @IBOutlet weak var sugarCountLabel: UILabel!

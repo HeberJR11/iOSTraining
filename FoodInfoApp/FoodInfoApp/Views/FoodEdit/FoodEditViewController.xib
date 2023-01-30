@@ -14,6 +14,7 @@
                 <outlet property="carbsTextField" destination="9kE-zZ-pFU" id="D63-hi-JIP"/>
                 <outlet property="fatTextField" destination="zYb-CT-uWq" id="ouk-nG-p8i"/>
                 <outlet property="fiberTextField" destination="eN8-jV-Rd2" id="FLt-ZY-NvH"/>
+                <outlet property="imageFood" destination="T3A-kv-Xq0" id="y7Q-ev-FRJ"/>
                 <outlet property="imageFoodEdit" destination="T3A-kv-Xq0" id="1NI-jH-omT"/>
                 <outlet property="nameTextField" destination="6nh-XB-Lxh" id="Urm-Fc-G0J"/>
                 <outlet property="proteinTextField" destination="0xx-K9-lvj" id="aKU-4b-NJk"/>
@@ -45,7 +46,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Change"/>
                                     <connections>
-                                        <action selector="changeButton:" destination="-1" eventType="touchUpInside" id="X5W-iQ-JkL"/>
+                                        <action selector="selectImageFood:" destination="-1" eventType="touchUpInside" id="cBm-gV-6hw"/>
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="82J-Zs-DVB">
