@@ -12,37 +12,23 @@ class FoodDetailsViewController: UIViewController {
     weak var presenter: FoodDetailsPresenter?
     
     var foodSelected: FoodEntity?
+    var foodUpdated: FoodEntity?
     
     @IBOutlet weak var foodImage: UIImageView!
     
     @IBOutlet weak var nameFoodLabel: UILabel!
     @IBOutlet weak var nutrientsLabel: UILabel!
     
-    @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var caloriesCountLabel: UILabel!
-    
-    @IBOutlet weak var fatLabel: UILabel!
     @IBOutlet weak var fatCountLabel: UILabel!
-    
-    @IBOutlet weak var sugarLabel: UILabel!
     @IBOutlet weak var sugarCountLabel: UILabel!
-    
-    @IBOutlet weak var fiberLabel: UILabel!
     @IBOutlet weak var fiberCountLabel: UILabel!
-    
-    @IBOutlet weak var carbsLabel: UILabel!
     @IBOutlet weak var carbsCountLabel: UILabel!
-    
-    @IBOutlet weak var proteinLabel: UILabel!
     @IBOutlet weak var proteinCountLabel: UILabel!
-    
-    @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var unitCountLabel: UILabel!
     
-    
-    
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.title = "Food Details"
@@ -52,6 +38,9 @@ class FoodDetailsViewController: UIViewController {
         foodImage.layer.cornerRadius = 9
         foodImage.layer.borderWidth = 5
         foodImage.layer.borderColor = UIColor.blue.cgColor
+        
+        self.presenter?.requestFoodSelected()
+        
     }
     
     @objc func editButtonAction() {
@@ -68,8 +57,33 @@ class FoodDetailsViewController: UIViewController {
 extension FoodDetailsViewController: FoodDetailsDelegate {
     
     func food(foodSelected food: FoodEntity) {
+        
         self.foodSelected = food
+        
+        nameFoodLabel.text = food.name
+        caloriesCountLabel.text = food.calorias.description
+        fatCountLabel.text = food.fat.description
+        sugarCountLabel.text = food.suggar.description
+        fiberCountLabel.text = food.fiber.description
+        carbsCountLabel.text = food.carbs.description
+        proteinCountLabel.text = food.protein.description
+        unitCountLabel.text = food.units.description
+        
     }
     
+    func food(foodUpdated food: FoodEntity) {
+        
+        self.foodUpdated = food
+        
+        nameFoodLabel.text = food.name
+        caloriesCountLabel.text = food.calorias.description
+        fatCountLabel.text = food.fat.description
+        sugarCountLabel.text = food.suggar.description
+        fiberCountLabel.text = food.fiber.description
+        carbsCountLabel.text = food.carbs.description
+        proteinCountLabel.text = food.protein.description
+        unitCountLabel.text = food.units.description
+        
+    }
     
 }

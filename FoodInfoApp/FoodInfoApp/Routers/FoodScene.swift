@@ -36,6 +36,10 @@ class FoodScene: NSObject {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.goToEdit), name: NSNotification.Name("foodScene.goToEdit"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goToDetails), name: NSNotification.Name("foodCreatedService"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.closeEdit), name: NSNotification.Name("foodUpdatedService"), object: nil)
+        
     }
     
     @objc func goToEdit(notification: Notification) {
@@ -44,11 +48,23 @@ class FoodScene: NSObject {
         
     }
     
-    // Otros presenters
-    
-    func openDetails() {
+    @objc func goToDetails(notification: Notification) {
         
         self.detailsPresenter.openDetails()
+        
+    }
+    
+    @objc func closeEdit(notification: Notification) {
+        
+        self.editPresenter.closeDetails()
+        
+    }
+    
+    // Otros presenters
+    
+    func openDetails(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) {
+        
+        self.interactor.createFood(id: id, name: name, calorias: calorias, carbs: carbs, fat: fat, fiber: fiber, protein: protein, suggar: suggar, units: units)
         
     }
     
@@ -63,5 +79,7 @@ class FoodScene: NSObject {
         self.editPresenter.openDetails()
         
     }
+    
+    
     
 }
