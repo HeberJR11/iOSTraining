@@ -13,12 +13,19 @@ class FoodEditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let sheet = presentationController as? UISheetPresentationController else { return }
+        
+        sheet.detents = [.medium(), .large()]
+        sheet.selectedDetentIdentifier = .medium
+        sheet.prefersGrabberVisible = true
+        sheet.preferredCornerRadius = 20
     }
 }
 
 extension FoodEditViewController: FoodEditDelegate {
     
     func food(foodEdited food: FoodEntity) {
-        print("hjhjh")
+        print("l")
     }
 }

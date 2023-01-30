@@ -38,29 +38,29 @@ class FoodScene: NSObject {
         
     }
     
-    @objc func goToAdd(notification: Notification) {
+    @objc func goToEdit(notification: Notification) {
         
-        self.openAdd()
+        self.openEdit()
         
     }
     
     // Otros presenters
     
-    func openHome() {
+    func openDetails() {
         
         self.detailsPresenter.openDetails()
         
     }
     
-    func closeHome() {
+    func closeDetails() {
         
         self.detailsPresenter.closeDetails()
         
     }
     
-    func openAdd() {
+    func openEdit() {
         
-        self.editPresenter.openAdd()
+        self.editPresenter.openDetails()
         
     }
     

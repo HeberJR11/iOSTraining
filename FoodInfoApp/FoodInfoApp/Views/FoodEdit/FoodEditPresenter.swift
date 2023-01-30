@@ -22,15 +22,15 @@ class FoodEditPresenter: NSObject {
         
     }
     
-    func openAdd() {
+    func openDetails() {
         
-        self.router.openAdd(presenter: self)
+        self.router.openDetails(presenter: self)
         
     }
     
-    func closeAdd() {
+    func closeDetails() {
         
-        self.router.closeAdd(presenter: self)
+        self.router.closeDetails(presenter: self)
         
     }
     
