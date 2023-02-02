@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         foodScene.createScene(window: window)
         
-        foodScene.openDetails(id: 1, name: "PRUEBA", calorias: 0, carbs: 0, fat: 0, fiber: 0, protein: 0, suggar: 0, units: 0)
+        foodScene.openDetails(id: 1, name: "PRUEBA", calories: 0, carbs: 0, fat: 0, fiber: 0, protein: 0, sugar: 0, units: 0, image: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

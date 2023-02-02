@@ -62,9 +62,9 @@ class FoodScene: NSObject {
     
     // Otros presenters
     
-    func openDetails(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) {
+    func openDetails(id: Int32, name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) {
         
-        self.interactor.createFood(id: id, name: name, calorias: calorias, carbs: carbs, fat: fat, fiber: fiber, protein: protein, suggar: suggar, units: units)
+        self.interactor.createFood(id: id, name: name, calories: calories, carbs: carbs, fat: fat, fiber: fiber, protein: protein, sugar: sugar, units: units, image: image)
         
     }
     
@@ -79,7 +79,5 @@ class FoodScene: NSObject {
         self.editPresenter.openDetails()
         
     }
-    
-    
     
 }

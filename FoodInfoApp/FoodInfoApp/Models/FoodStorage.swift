@@ -51,7 +51,6 @@ class FoodStorage {
         
     }
     
-    
     // Obtiene todos los alimentos desde el contenedor
     func getFood() -> [FoodEntity] {
         
@@ -82,20 +81,21 @@ class FoodStorage {
         
     }
     
-    //Crea un alimento
-    func createFood(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) -> FoodEntity? {
+    //Crea un alimento para poder mostrarlo en la pantalla de detalles
+    func createFood(id: Int32, name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) -> FoodEntity? {
         
         let food = FoodEntity(context: self.context)
         
         food.id = id
         food.name = name
-        food.calorias = calorias
+        food.calories = calories
         food.carbs = carbs
         food.fat = fat
         food.fiber = fiber
         food.protein = protein
-        food.suggar = suggar
+        food.sugar = sugar
         food.units = units
+        food.image = image
         
         print("Creado food")
 
@@ -104,7 +104,7 @@ class FoodStorage {
     }
     
     // Edita el almiento
-    func updateFood(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) -> FoodEntity? {
+    func updateFood(id: Int32, name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) -> FoodEntity? {
         
         guard let food = self.getFoodSelect(byId: id) else {
             return nil
@@ -112,13 +112,14 @@ class FoodStorage {
         
         food.name = name
         food.id = Int32.random(in: 1...10)
-        food.calorias = calorias
+        food.calories = calories
         food.carbs = carbs
         food.fat = fat
         food.fiber = fiber
         food.protein = protein
-        food.suggar = suggar
+        food.sugar = sugar
         food.units = units
+        food.image = image
         
         print("Guardando food")
 

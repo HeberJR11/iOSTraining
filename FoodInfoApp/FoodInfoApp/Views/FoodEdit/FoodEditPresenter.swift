@@ -91,9 +91,9 @@ class FoodEditPresenter: NSObject {
         self.interactor.requestFoodSelected()
     }
     
-    func updateFood(name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) {
+    func updateFood(name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) {
         
-        self.interactor.updateFood(name: name, calorias: calorias, carbs: carbs, fat: fat, fiber: fiber, protein: protein, suggar: suggar, units: units)
+        self.interactor.updateFood(name: name, calories: calories, carbs: carbs, fat: fat, fiber: fiber, protein: protein, sugar: sugar, units: units, image: image)
         
     }
     

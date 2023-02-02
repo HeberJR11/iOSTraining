@@ -96,5 +96,4 @@ class FoodDetailsPresenter: NSObject {
         
     }
     
-    
 }

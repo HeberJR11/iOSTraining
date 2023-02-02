@@ -58,9 +58,9 @@ class FoodService {
         
     }
 
-    func createFood(id: Int32, name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) {
+    func createFood(id: Int32, name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) {
         
-        if let food = self.foodStorage.createFood(id: id, name: name, calorias: calorias, carbs: carbs, fat: fat, fiber: fiber, protein: protein, suggar: suggar, units: units) {
+        if let food = self.foodStorage.createFood(id: id, name: name, calories: calories, carbs: carbs, fat: fat, fiber: fiber, protein: protein, sugar: sugar, units: units, image: image) {
             
             self.foodSelected = food
             
@@ -71,7 +71,7 @@ class FoodService {
     }
     
     
-    func updateFood(name: String, calorias: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, suggar: Double, units: Double) {
+    func updateFood(name: String, calories: Double, carbs: Double, fat: Double, fiber: Double, protein: Double, sugar: Double, units: Double, image: Data?) {
         
         guard let foodSelected = self.foodSelected else {
             // TODO: Informar error no seleccionado
@@ -79,7 +79,7 @@ class FoodService {
             return
         }
         
-        if let foodUpdateed = self.foodStorage.updateFood(id: foodSelected.id, name: name, calorias: calorias, carbs: carbs, fat: fat, fiber: fiber, protein: protein, suggar: suggar, units: units) {
+        if let foodUpdateed = self.foodStorage.updateFood(id: foodSelected.id, name: name, calories: calories, carbs: carbs, fat: fat, fiber: fiber, protein: protein, sugar: sugar, units: units, image: image) {
             
             self.requestFood()
             

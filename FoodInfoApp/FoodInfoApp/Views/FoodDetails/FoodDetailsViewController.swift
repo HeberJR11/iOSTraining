@@ -13,6 +13,7 @@ class FoodDetailsViewController: UIViewController {
     
     var foodSelected: FoodEntity?
     var foodUpdated: FoodEntity?
+    let defaultImage = UIImage.init(systemName: "pencil")?.pngData()
     
     @IBOutlet weak var foodImage: UIImageView!
     @IBOutlet weak var nameFoodLabel: UILabel!
@@ -32,6 +33,7 @@ class FoodDetailsViewController: UIViewController {
         self.title = "Food Details"
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.editButtonAction))
+        
         //foodImage.layer.cornerRadius = foodImage.bounds.size.width / 5.0
         foodImage.layer.cornerRadius = 9
         foodImage.layer.borderWidth = 5
@@ -59,13 +61,14 @@ extension FoodDetailsViewController: FoodDetailsDelegate {
         self.foodSelected = food
         
         nameFoodLabel.text = food.name
-        caloriesCountLabel.text = food.calorias.description
+        caloriesCountLabel.text = food.calories.description
         fatCountLabel.text = food.fat.description
-        sugarCountLabel.text = food.suggar.description
+        sugarCountLabel.text = food.sugar.description
         fiberCountLabel.text = food.fiber.description
         carbsCountLabel.text = food.carbs.description
         proteinCountLabel.text = food.protein.description
         unitCountLabel.text = food.units.description
+        self.foodImage.image = UIImage(data: food.image ?? defaultImage!)
         
     }
     
@@ -74,13 +77,14 @@ extension FoodDetailsViewController: FoodDetailsDelegate {
         self.foodUpdated = food
         
         nameFoodLabel.text = food.name
-        caloriesCountLabel.text = food.calorias.description
+        caloriesCountLabel.text = food.calories.description
         fatCountLabel.text = food.fat.description
-        sugarCountLabel.text = food.suggar.description
+        sugarCountLabel.text = food.sugar.description
         fiberCountLabel.text = food.fiber.description
         carbsCountLabel.text = food.carbs.description
         proteinCountLabel.text = food.protein.description
         unitCountLabel.text = food.units.description
+        self.foodImage.image = UIImage(data: food.image ?? defaultImage!)
         
     }
     
